@@ -7,13 +7,9 @@ var gt = function (s) {
   if (text.substr(0,1) != '>') return;
   s.style.color = "#789922";
 };
-
-var gtt = function (t) {
-  var es = document.getElementsByTagName(t);
-  for (i in es) {
-    gt(es[i]);
+(function() {
+  var es = document.getElementsByTagName("*");
+  for (var i = es.length; i--;) {
+      gt(es[i]);
   }
-};
-
-gtt('div');
-gtt('span');
+})();
