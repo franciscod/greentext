@@ -1,6 +1,8 @@
 greentext
 =========
 
-\>[greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/)
+\>[firefox? greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/)
 
-\>[install](https://raw.githubusercontent.com/franciscod/greentext/master/greentext.user.js)
+\>[chrome? tampermonkey](dchttps://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
+
+\>[install userscript](https://raw.githubusercontent.com/franciscod/greentext/master/greentext.user.js)
