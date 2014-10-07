@@ -3,7 +3,7 @@
 // @namespace   greentext
 // @description >greentext.js
 // @include     *
-// @version     9
+// @version     10
 // @grant       none
 // @require     https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.4/zepto.min.js
 // @downloadURL https://raw.githubusercontent.com/franciscod/greentext/master/greentext.user.js
