@@ -8,7 +8,7 @@ var gt = function (s) {
   s.style.color = "#789922";
 };
 var gte = function() {
-  var es = document.getElementsByTagName("*");
+  var es = document.getElementsByTagName("*").not("input");
   for (var i = es.length; i--;) {
       gt(es[i]);
   }

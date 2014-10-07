@@ -3,7 +3,7 @@
 // @namespace   greentext
 // @description >greentext.js
 // @include     *
-// @version     3
+// @version     4
 // @grant       none
 // @downloadURL https://raw.githubusercontent.com/franciscod/greentext/master/greentext.user.js
 // @updateURL   https://raw.githubusercontent.com/franciscod/greentext/master/greentext.meta.js
