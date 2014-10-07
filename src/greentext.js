@@ -7,10 +7,12 @@ var gt = function (s) {
   if (text.substr(0,1) != '>') return;
   s.style.color = "#789922";
 };
+
 var gte = function() {
-  var es = document.getElementsByTagName("*").not("input");
+  var es = $("*").not("input");
   for (var i = es.length; i--;) {
       gt(es[i]);
   }
 };
+
 setInterval(gte, 200);
