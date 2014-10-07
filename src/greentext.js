@@ -4,17 +4,19 @@ var gt = function (s) {
   var fc = s.firstChild; if (!fc) return;
   var text = fc.nodeValue; if (!text) return;
 
-  if ((!Zepto(s).data('greentext-d')) && (text.substr(0,1) == '>')) {
+  var gtd = Zepto(s).data('greentext-d');
+  var isgt = text.substr(0,1) == '>';
+
+  if (!gtd && isgt) {
     Zepto(s).data('greentext-precolor', s.style.color);
     Zepto(s).data('greentext-d', true);
     s.style.color = "#789922";
     return;
   }
 
-  if (Zepto(s).data('greentext-d')) {
+  if (gtd && !isgt) {
     s.style.color = Zepto(s).data('greentext-precolor');
-    Zepto(s).data('greentext-precolor', null)
-    Zepto(s).data('greentext-d', false)
+    Zepto(s).data('greentext-d', false);
     return;
   }
 
