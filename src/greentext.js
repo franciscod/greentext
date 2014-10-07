@@ -9,7 +9,7 @@ var gt = function (s) {
 };
 
 var gte = function() {
-  var es = $("*").not("input");
+  var es = $("*").not("input").not(".editable");
   for (var i = es.length; i--;) {
       gt(es[i]);
   }
