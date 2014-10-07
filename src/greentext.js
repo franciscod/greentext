@@ -4,7 +4,7 @@ var gt = function (s) {
   var fc = s.firstChild; if (!fc) return;
   var text = fc.nodeValue; if (!text) return;
 
-  if (text.substr(0,1) == '>') {
+  if ((!Zepto(s).data('greentext-d')) && (text.substr(0,1) == '>')) {
     Zepto(s).data('greentext-precolor', s.style.color);
     Zepto(s).data('greentext-d', true);
     s.style.color = "#789922";
