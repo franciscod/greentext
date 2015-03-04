@@ -5,7 +5,7 @@ var gt = function (s) {
   var text = fc.nodeValue; if (!text) return;
 
   var gtd = Zepto(s).data('greentext-d');
-  var isgt = text.substr(0,1) == '>';
+  var isgt = text.trim().substr(0,1) == '>';
 
   if (!gtd && isgt) {
     Zepto(s).data('greentext-precolor', s.style.color);
