@@ -1,8 +1,17 @@
-def: greentext.js
-	uglifyjs --output tmp.js greentext.js
-	sed -ri "s/@version.*/@version     $(COMMITCOUNT)/" meta.js
+def: build clean
 
-	cat meta.js tmp.js > ../greentext.user.js
+debug: greentext.js
+	cat meta.js greentext.js > ../greentext.user.js
+
+ugly.js: greentext.js
+	uglifyjs --output ugly.js greentext.js
+
+bump:
+	./bump.sh
+
+build: bump ugly.js
+	cat meta.js ugly.js > ../greentext.user.js
 	cp meta.js ../greentext.meta.js
 
-	rm tmp.js
+clean:
+	rm ugly.js
