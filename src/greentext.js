@@ -1,31 +1,14 @@
-var gt = function (s) {
-  if (!s) return;
-
-  var fc = s.firstChild; if (!fc) return;
-  var text = fc.nodeValue; if (!text) return;
-
-  var gtd = Zepto(s).data('greentext-d');
-  var isgt = text.trim().substr(0,1) == '>';
-
-  if (!gtd && isgt) {
-    Zepto(s).data('greentext-precolor', s.style.color);
-    Zepto(s).data('greentext-d', true);
-    s.style.color = "#789922";
-    return;
-  }
-
-  if (gtd && !isgt) {
-    s.style.color = Zepto(s).data('greentext-precolor');
-    Zepto(s).data('greentext-d', false);
-    return;
-  }
-
+function applyGreentext(i, s) {
+  Zepto(s).wrap('<mark class="greentexted" style="background-color: inherit; color: #789922;"></div>')
 };
 
-var gte = function() {
-  Zepto("*").each(function(i) {
-      gt(this);
-  });
+function isTextNode() { return this.nodeType === 3; };
+function greentextChild() { return Zepto(this).parent().is('mark.greentexted'); };
+function isGreentext() { return Zepto(this).text().trim().substr(0,1) === '>'; };
+
+function greentextEverything() {
+  Zepto('*').contents().filter(isTextNode).not(greentextChild).filter(isGreentext).map(applyGreentext);
+  Zepto('mark.greentexted').not(isGreentext).unwrap();
 };
 
-setInterval(gte, 200);
+setInterval(greentextEverything, 200);
