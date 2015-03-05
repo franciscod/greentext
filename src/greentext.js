@@ -6,9 +6,16 @@ function isTextNode() { return this.nodeType === 3; };
 function greentextChild() { return Zepto(this).parent().is('mark.greentexted'); };
 function isGreentext() { return Zepto(this).text().trim().substr(0,1) === '>'; };
 
-function greentextEverything() {
+// light
+function greentextAll() {
   Zepto('*').contents().filter(isTextNode).not(greentextChild).filter(isGreentext).map(applyGreentext);
   Zepto('mark.greentexted').not(isGreentext).unwrap();
 };
 
-setInterval(greentextEverything, 200);
+// heavy
+function greentextTextNodes() {
+  Zepto('*').contents().filter(isTextNode).not(greentextChild).filter(isGreentext).map(applyGreentext);
+}
+
+greentextTextNodes();
+setInterval(greentextAll, 200);
